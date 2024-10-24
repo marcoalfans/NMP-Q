@@ -8,3 +8,4 @@ Key Points:
 - **Research Significance**: It has been widely applied in studies related to technology dependence, mental health, and behavioral analysis.
 - **Usage**: The NMP-Q is frequently utilized in both qualitative and quantitative research methods, aiding in the understanding of the psychological and social impacts of smartphone usage.
 - **Fields of Application**: This questionnaire is particularly relevant in areas such as clinical psychology, behavioral sciences, and digital media studies.
+# NMP-Q
