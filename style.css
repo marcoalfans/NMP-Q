@@ -119,12 +119,46 @@ h2 {
   fill: var(--secondary-color);
 }
 
-#contact {
+#start {
   background-color: var(--secondary-color);
 }
-#contact svg path {
+#start svg path {
   fill: var(--tertiary-color);
 }
 section {
   padding-top: 5rem;
+}
+#name-input {
+  color: white;
+}
+input {
+  font-size: 2em;
+  padding: 10px 10px;
+  width: 300px;
+  border: none;
+  background-color: transparent;
+  transition: border-color 0.3s;
+  text-align: center;
+}
+.dots {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 10px; /* Increased height for larger dots */
+  background-image: radial-gradient(
+    circle,
+    hsl(0, 0%, 100%) 3px,
+    transparent 3px
+  );
+  background-size: 10px 10px; /* Increased size for larger dots and spacing */
+  background-position: bottom;
+  background-repeat: repeat-x;
+  transition: opacity 0.3s;
+  margin: 0 20% 0;
+}
+input:focus {
+  outline: none;
+}
+input:focus + .dots {
+  opacity: 0;
 }

@@ -18,3 +18,21 @@ navLinks.forEach((l) => {
     bsCollapse.toggle();
   });
 });
+
+//logic
+const input = document.getElementById("name-input");
+const placeholder = "Insert your name";
+let charIndex = 0;
+
+function typePlaceholder() {
+  if (charIndex < placeholder.length) {
+    input.placeholder = placeholder.slice(0, charIndex + 1);
+    charIndex++;
+    setTimeout(typePlaceholder, 100);
+  }
+}
+
+window.onload = function () {
+  input.placeholder = "";
+  setTimeout(typePlaceholder, 1000);
+};
