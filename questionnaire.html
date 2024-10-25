@@ -7,26 +7,21 @@
     <link rel="icon" href="assets/img/nmp.ico" />
     <title>Nomophobia Questionnaire (NMP-Q)</title>
 
-    <!-- Bootsrap CSS-->
+    <!-- Bootstrap CSS-->
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
-      integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
-      crossorigin="anonymous"
     />
 
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css"
     />
-    <!-- Akhir Bootsrap CSS -->
     <!-- AOS-->
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <!-- Akhir AOS-->
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/TextPlugin.min.js"></script>
-    <!-- Akhir GSAP -->
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css"
@@ -34,19 +29,16 @@
     <!-- My CSS-->
     <link rel="stylesheet" href="style.css" />
     <link rel="stylesheet" href="animation.css" />
-    <!-- Akhir My CSS-->
-    <style></style>
   </head>
-  <body id="welcome">
+  <body id="questionnaire">
     <!-- Navbar -->
     <nav class="navbar navbar-expand-lg shadow-sm fixed-top">
       <div class="container">
-        <a class="navbar-brand" href="#start" style="font-weight: bolder"
-          >Are you nomophobic?</a
+        <a class="navbar-brand" style="font-weight: bolder"
+          >Nomophobia Questionnaire (NMP-Q)</a
         >
         <button
-          class="navbar-toggler custom-toggler me-3"
-          style="border-color: var(--text-color)"
+          class="navbar-toggler custom-toggler"
           type="button"
           data-bs-toggle="collapse"
           data-bs-target="#navbarNav"
@@ -54,24 +46,17 @@
           aria-expanded="false"
           aria-label="Toggle navigation"
         >
-          <span class="navbar-toggler-icon">
-            <i
-              class="fas fa-bars"
-              style="color: var(--text-color); font-size: 25px"
-            ></i>
-          </span>
+          <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav ms-auto">
             <li class="nav-item switch-theme">
-              <!-- button -->
               <input type="checkbox" class="checkbox" id="chk" />
               <label class="label" for="chk">
                 <i class="fas fa-sun"></i>
                 <i class="fas fa-moon"></i>
                 <div class="ball"></div>
               </label>
-              <!-- Akhir button -->
             </li>
           </ul>
         </div>
@@ -81,41 +66,12 @@
 
     <!-- Jumbotron -->
     <section class="jumbotron text-center">
-      <h1 class="display-7 fw-semibold">Nomophobia Questionnaire</h1>
-      <img
-        src="assets/img/nmp.jpeg"
-        alt="Nomophobia Illustation"
-        width="200"
-        class="rounded-circle img-thumbnail"
-      />
-      <h6 style="margin: 2% 15%">
-        The Nomophobia Questionnaire (NMP-Q) has become a popular instrument in
-        psychological research, particularly for measuring dependence on
-        smartphones. Numerous scholarly journals have published studies that use
-        the NMP-Q as a primary assessment tool or as a supporting instrument in
-        their research.
-      </h6>
-      <h5>Purpose</h5>
-      <p style="margin: 1% 15%">
-        The NMP-Q is designed to assess the level of an individual's nomophobia,
-        or the fear of being without a mobile phone.
-      </p>
-      <h5>Research Significance</h5>
-      <p style="margin: 1% 15%">
-        It has been widely applied in studies related to technology dependence,
-        mental health, and behavioral analysis.
-      </p>
-      <h5>Usage</h5>
-      <p style="margin: 1% 15%">
-        The NMP-Q is frequently utilized in both qualitative and quantitative
-        research methods, aiding in the understanding of the psychological and
-        social impacts of smartphone usage.
-      </p>
-      <h5>Fields of Application</h5>
-      <p style="margin: 1% 15%">
-        This questionnaire is particularly relevant in areas such as clinical
-        psychology, behavioral sciences, and digital media studies.
-      </p>
+      <h1 class="display-7 fw-semibold">Instructions</h1>
+      <div class="card-body">
+        <p id="instructionText" class="text-center"></p>
+        <div id="scaleText" class="scale-container"></div>
+        <p class="be-honest text-center mt-3 fw-bold text-danger">Be honest!</p>
+      </div>
       <svg
         style="margin-bottom: -5px"
         xmlns="http://www.w3.org/2000/svg"
@@ -135,23 +91,18 @@
       <div class="container">
         <div class="row text-center mb-3">
           <div class="col mb-3">
-            <h2>Discover More</h2>
-            <input type="text" id="userName" placeholder="Insert your name" />
-            <div class="dots"></div>
-            <div class="socmed items-center">
-              <a
-                style="margin-top: 25px"
-                class="btn btn-lg rounded-circle icon-gjl"
-                role="button"
-                id="submitName"
-                target="_blank"
+            <form id="nmpqForm">
+              <div id="questions"></div>
+              <button
+                class="btn btn-custom mt-4"
+                id="nmpqFormSubmit"
+                style="width: 20%; border-radius: 0.5rem"
+                type="submit"
               >
-                <i
-                  class="fa fa-chevron-circle-right fa-2x align-middle"
-                  style="margin: -9px"
-                ></i>
-              </a>
-            </div>
+                check!
+              </button>
+            </form>
+            <div id="result"></div>
           </div>
         </div>
       </div>
@@ -168,6 +119,7 @@
       </svg>
     </section>
     <!-- Akhir Start -->
+
     <!-- Footer -->
     <footer class="text-white text-center pb-5">
       <p>
@@ -187,7 +139,7 @@
         </svg>
         by
         <a
-          href="https://www.linkedin.com/signup/public-profile-join?vieweeVanityName=marco-alfan-71703a129&trk=public_profile_top-card-primary-button-join-to-connect"
+          href="https://www.linkedin.com/in/marco-alfan-71703a129/"
           class="text-white fw-bold"
           target="_blank"
           >Marco Alfan</a
@@ -195,13 +147,12 @@
       </p>
     </footer>
     <!-- Akhir Footer -->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
-      crossorigin="anonymous"
-    ></script>
-    <!-- Akhir JS Bootstrap-->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
     <script>
       AOS.init({
         once: true,
@@ -215,11 +166,6 @@
         opacity: 0,
         ease: "power2",
       });
-      gsap.from(".jumbotron img", { duration: 1, rotateY: 360, opacity: 0 });
     </script>
-    <!-- Fontawesome JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
-    <script src="auth.js"></script>
-    <script src="script.js"></script>
   </body>
 </html>

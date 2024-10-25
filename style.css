@@ -12,6 +12,7 @@ html[data-color-mode="light"] {
   --secondary-color: #caf0f8;
   --tertiary-color: #00b4d8;
 }
+
 .socmed a {
   height: 57px;
   width: 57px;
@@ -94,6 +95,60 @@ body {
   min-height: 1500px;
   color: var(--text-color);
 }
+/*intructions */
+.instructionText {
+  font-size: 20px;
+  text-align: center;
+  color: var(--text-color);
+}
+.be-honest {
+  font-size: 1.2em;
+  font-weight: bold;
+  color: #e74c3c;
+}
+.scale-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+}
+.scale-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 120px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: var(--secondary-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.scale-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+.scale-value {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--text-color);
+}
+.scale-text {
+  font-size: 14px;
+  text-align: center;
+  color: var(--text-color);
+  margin-top: 5px;
+}
+
+@media (max-width: 768px) {
+  .scale-item {
+    width: calc(50% - 10px);
+  }
+}
+/*intructions */
+.img-thumbnail {
+  border: 3px solid #3498db;
+}
 h1 {
   color: var(--subtitle-color);
 }
@@ -128,8 +183,8 @@ h2 {
 section {
   padding-top: 5rem;
 }
-#name-input {
-  color: white;
+#userName {
+  color: var(--text-color);
 }
 input {
   font-size: 2em;
@@ -147,7 +202,7 @@ input {
   height: 10px; /* Increased height for larger dots */
   background-image: radial-gradient(
     circle,
-    hsl(0, 0%, 100%) 3px,
+    var(--text-color) 3px,
     transparent 3px
   );
   background-size: 10px 10px; /* Increased size for larger dots and spacing */
@@ -161,4 +216,67 @@ input:focus {
 }
 input:focus + .dots {
   opacity: 0;
+}
+.question {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 20px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+.question p {
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.options {
+  margin-top: 10px;
+  overflow-x: auto;
+}
+
+.radio-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 250px; /* Mengurangi lebar minimum */
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.radio-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px; /* Mengurangi margin horizontal secara signifikan */
+  padding: 0 2px; /* Menambahkan sedikit padding */
+  flex: 0 0 auto; /* Mencegah penyusutan atau pertumbuhan */
+}
+
+.radio-option input[type="radio"] {
+  margin: 0 0 2px 0; /* Mengurangi margin bawah */
+  width: 20px;
+  height: 20px;
+}
+.radio-option span {
+  font-size: 20px; /* Mengurangi ukuran font lebih lanjut */
+  text-align: center;
+  max-width: 40px; /* Membatasi lebar teks */
+  word-wrap: break-word; /* Memungkinkan pemisahan kata jika terlalu panjang */
+}
+
+@media (max-width: 500px) {
+  .radio-group {
+    min-width: unset;
+    justify-content: space-around; /* Distribusi merata pada layar kecil */
+  }
+
+  .radio-option {
+    margin: 0; /* Menghilangkan margin pada layar kecil */
+  }
+}
+.btn-custom {
+  background-color: var(--subtitle-color);
+  color: var(--main-color);
 }
