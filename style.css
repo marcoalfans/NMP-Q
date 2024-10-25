@@ -182,6 +182,9 @@ h1 {
 h2 {
   color: var(--subtitle-color);
 }
+h5 {
+  color: var(--subtitle-color);
+}
 .jumbotron {
   padding-top: 6rem;
   background-color: var(--main-color);
@@ -220,7 +223,7 @@ section {
   color: var(--text-color);
 }
 input {
-  font-family: "Orbitron", cursive;
+  font-family: "Playpen Sans";
   font-size: 2em;
   padding: 10px 10px;
   width: 300px;

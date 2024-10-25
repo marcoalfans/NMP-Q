@@ -4,6 +4,10 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap"
+      rel="stylesheet"
+    />
     <link rel="icon" href="assets/img/nmp.ico" />
     <title>Nomophobia Questionnaire (NMP-Q)</title>
 
@@ -148,6 +152,17 @@
     </footer>
     <!-- Akhir Footer -->
 
+    <audio id="backgroundMusic" loop>
+      <source src="assets/etc/backsound.mp3" type="audio/mpeg" />
+      Your browser does not support the audio element.
+    </audio>
+
+    <img
+      id="musicToggle"
+      src="assets/img/sound.png"
+      onclick="toggleMusic()"
+      alt="Toggle Music"
+    />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/all.min.js"></script>
@@ -165,6 +180,74 @@
         y: "-100%",
         opacity: 0,
         ease: "power2",
+      });
+
+      let music = document.getElementById("backgroundMusic");
+      let musicToggle = document.getElementById("musicToggle");
+      let isPlaying = false;
+
+      // Fungsi untuk memulai musik
+      function startMusic() {
+        music
+          .play()
+          .then(() => {
+            isPlaying = true;
+            updateMusicToggle();
+          })
+          .catch((error) => {
+            console.log("Pemutaran musik gagal:", error);
+          });
+      }
+
+      // Fungsi untuk toggle musik
+      function toggleMusic() {
+        if (isPlaying) {
+          music.pause();
+          isPlaying = false;
+        } else {
+          startMusic();
+        }
+        updateMusicToggle();
+      }
+
+      // Fungsi untuk memperbarui tampilan toggle
+      function updateMusicToggle() {
+        musicToggle.src = isPlaying
+          ? "assets/img/sound.png"
+          : "assets/img/mute.png";
+      }
+
+      // Event listener untuk toggle musik
+      musicToggle.addEventListener("click", toggleMusic);
+
+      // Event listener untuk interaksi pengguna pertama kali
+      document.addEventListener(
+        "click",
+        function () {
+          if (!isPlaying) {
+            startMusic();
+          }
+        },
+        { once: true }
+      );
+
+      // Muat status musik dari localStorage saat halaman dimuat
+      window.addEventListener("load", function () {
+        let savedMusicState = localStorage.getItem("musicPlaying");
+        if (savedMusicState === "true") {
+          startMusic();
+        }
+      });
+
+      // Simpan status musik ke localStorage saat meninggalkan halaman
+      window.addEventListener("beforeunload", function () {
+        localStorage.setItem("musicPlaying", isPlaying);
+      });
+
+      // Tangani kasus ketika musik selesai (jika loop tidak berfungsi)
+      music.addEventListener("ended", function () {
+        isPlaying = false;
+        updateMusicToggle();
       });
     </script>
   </body>
