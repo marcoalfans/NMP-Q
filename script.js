@@ -277,7 +277,7 @@ function handleFormSubmit(e) {
   localStorage.setItem("userName", userName);
 
   // Panggil displayResult
-  alert("Semua pertanyaan telah dijawab. Form siap dikirim!");
+  //alert("Semua pertanyaan telah dijawab. Form siap dikirim!");
   displayResult(totalScore);
 }
 function displayResult(totalScore) {

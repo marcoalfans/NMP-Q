@@ -180,6 +180,12 @@ h2 {
 #start svg path {
   fill: var(--tertiary-color);
 }
+#credit {
+  background-color: var(--secondary-color);
+}
+#credit svg path {
+  fill: var(--tertiary-color);
+}
 section {
   padding-top: 5rem;
 }
@@ -187,6 +193,7 @@ section {
   color: var(--text-color);
 }
 input {
+  font-family: "Orbitron", cursive;
   font-size: 2em;
   padding: 10px 10px;
   width: 300px;
@@ -194,6 +201,7 @@ input {
   background-color: transparent;
   transition: border-color 0.3s;
   text-align: center;
+  font-weight: bold;
 }
 .dots {
   bottom: 0;
