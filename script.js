@@ -243,19 +243,20 @@ function handleFormSubmit(e) {
   e.preventDefault();
   console.log("Form submitted");
 
-  // const unanswered = questions.findIndex((_, index) => {
-  //   const checked = document.querySelector(`input[name="q${index}"]:checked`);
-  //   console.log(
-  //     `Question ${index + 1}: ${checked ? "Answered" : "Unanswered"}`
-  //   );
-  //   return !checked;
-  // });
-  // console.log("Unanswered question index:", unanswered);
+  const unanswered = questions.findIndex((_, index) => {
+    const checked = document.querySelector(`input[name="q${index}"]:checked`);
+    console.log(
+      `Question ${index + 1}: ${checked ? "Answered" : "Unanswered"}`
+    );
+    return !checked;
+  });
+  console.log("Unanswered question index:", unanswered);
 
-  // if (unanswered !== -1) {
-  //   alert(`Mohon jawab pertanyaan nomor ${unanswered + 1}`);
-  //   return;
-  // }
+  if (unanswered !== -1) {
+    alert(`Mohon jawab pertanyaan nomor ${unanswered + 1}`);
+    return;
+  }
+
   let totalScore = 0;
   const totalQuestions = questions.length;
   for (let i = 0; i < totalQuestions; i++) {
@@ -263,6 +264,7 @@ function handleFormSubmit(e) {
     if (answer) {
       totalScore += parseInt(answer.value);
     } else {
+      alert(`Mohon jawab pertanyaan nomor ${unanswered + 1}`);
       console.log(`Mohon jawab pertanyaan nomor ${i + 1}`);
       return;
     }
@@ -275,7 +277,6 @@ function handleFormSubmit(e) {
   localStorage.setItem("userName", userName);
 
   // Panggil displayResult
-
   alert("Semua pertanyaan telah dijawab. Form siap dikirim!");
   displayResult(totalScore);
 }
