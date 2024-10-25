@@ -105,7 +105,26 @@
 
     <!-- Crediit -->
     <section id="credit">
-      <div class="container"></div>
+      <div class="container">
+        <h5 class="text-center">
+          Care to give it another shot?
+          <a href="#" onclick="mulailagi()">Click here</a>
+        </h5>
+        <h5 class="text-center">Enjoyed the experience? Support me on 👇</h5>
+        <div class="image-container text-center"></div>
+        <a
+          href="https://trakteer.id/masbae/tip"
+          style="text-align: center; display: block; margin: auto"
+          target="_blank"
+        >
+          <img
+            src="https://cdn.trakteer.id/images/embed/trbtn-red-1.png"
+            height="40"
+            style="border: 0px; height: 50px; margin: auto"
+            alt="Trakteer Saya"
+          />
+        </a>
+      </div>
       <svg
         style="margin-bottom: -5px"
         xmlns="http://www.w3.org/2000/svg"
@@ -169,6 +188,10 @@
         // Bersihkan localStorage setelah digunakan
         localStorage.clear();
       };
+
+      function mulailagi() {
+        window.location.href = "index.html";
+      }
     </script>
   </body>
 </html>

@@ -1,3 +1,16 @@
+var music = document.getElementById("backgroundMusic");
+var musicToggle = document.getElementById("musicToggle");
+
+function toggleMusic() {
+  if (music.paused) {
+    music.play();
+    musicToggle.classList.add("rotating");
+  } else {
+    music.pause();
+    musicToggle.classList.remove("rotating");
+  }
+}
+
 const chk = document.getElementById("chk");
 const html = document.querySelector("html");
 
@@ -33,6 +46,7 @@ function typePlaceholder() {
 }
 
 window.onload = function () {
+  music.play();
   input = document.getElementById("userName");
   if (input) {
     input.placeholder = "";

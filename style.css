@@ -12,7 +12,34 @@ html[data-color-mode="light"] {
   --secondary-color: #caf0f8;
   --tertiary-color: #00b4d8;
 }
+#musicToggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  z-index: 1000;
+  transition: transform 0.3s ease;
+}
 
+#musicToggle:hover {
+  transform: scale(1.1);
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.rotating {
+  animation: rotate 5s linear infinite;
+}
+/* music end  */
 .socmed a {
   height: 57px;
   width: 57px;
