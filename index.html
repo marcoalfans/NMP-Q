@@ -230,7 +230,6 @@
       let musicToggle = document.getElementById("musicToggle");
       let isPlaying = false;
 
-      // Fungsi untuk memulai musik
       function startMusic() {
         music
           .play()
@@ -243,7 +242,6 @@
           });
       }
 
-      // Fungsi untuk toggle musik
       function toggleMusic() {
         if (isPlaying) {
           music.pause();
@@ -254,17 +252,12 @@
         updateMusicToggle();
       }
 
-      // Fungsi untuk memperbarui tampilan toggle
       function updateMusicToggle() {
-        musicToggle.src = isPlaying
-          ? "assets/img/sound.png"
-          : "assets/img/mute.png";
+        musicToggle.classList.toggle("rotate", isPlaying);
       }
 
-      // Event listener untuk toggle musik
       musicToggle.addEventListener("click", toggleMusic);
 
-      // Event listener untuk interaksi pengguna pertama kali
       document.addEventListener(
         "click",
         function () {
@@ -280,18 +273,25 @@
         let savedMusicState = localStorage.getItem("musicPlaying");
         if (savedMusicState === "true") {
           startMusic();
+        } else {
+          isPlaying = false;
+          updateMusicToggle();
         }
       });
-
-      // Simpan status musik ke localStorage saat meninggalkan halaman
       window.addEventListener("beforeunload", function () {
         localStorage.setItem("musicPlaying", isPlaying);
       });
 
-      // Tangani kasus ketika musik selesai (jika loop tidak berfungsi)
       music.addEventListener("ended", function () {
         isPlaying = false;
         updateMusicToggle();
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        let savedMusicState = localStorage.getItem("musicPlaying");
+        if (savedMusicState === "true") {
+          startMusic();
+        }
       });
     </script>
     <!-- Fontawesome JS -->

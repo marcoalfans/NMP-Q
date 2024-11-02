@@ -21,23 +21,47 @@ html[data-color-mode="light"] {
   cursor: pointer;
   z-index: 1000;
   transition: transform 0.3s ease;
+  animation: rotate 0.5s forwards;
 }
-
+.rotate {
+  transform: rotate(180deg);
+}
 #musicToggle:hover {
   transform: scale(1.1);
 }
-
 @keyframes rotate {
-  from {
+  0% {
     transform: rotate(0deg);
   }
-  to {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes rotate-back {
+  0% {
+    transform: rotate(180deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+#musicToggle.rotate {
+  animation: rotate 2s linear infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
     transform: rotate(360deg);
   }
 }
 
-.rotating {
-  animation: rotate 5s linear infinite;
+/* Menambahkan animasi ke tombol toggle */
+#musicToggle.rotate {
+  animation: rotate 2s linear infinite;
 }
 /* music end  */
 .socmed a {
@@ -224,6 +248,7 @@ section {
 }
 input {
   font-family: "Playpen Sans";
+  font-weight: bold;
   font-size: 2em;
   padding: 10px 10px;
   width: 300px;
@@ -231,7 +256,6 @@ input {
   background-color: transparent;
   transition: border-color 0.3s;
   text-align: center;
-  font-weight: bold;
 }
 .dots {
   bottom: 0;
@@ -317,4 +341,5 @@ input:focus + .dots {
 .btn-custom {
   background-color: var(--subtitle-color);
   color: var(--main-color);
+  font-weight: bold;
 }

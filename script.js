@@ -52,8 +52,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Set bahasa default dan tampilkan pertanyaan
-  language = "en";
-  questions = questionsEnglish;
+  language = "id";
+  questions = questionsIndo;
   displayQuestions();
 });
 
@@ -70,7 +70,7 @@ themeToggle.addEventListener("change", () => {
 });
 
 let questions = [];
-let language = "en"; // Default to English
+let language = "id"; // Default to English
 const userName = localStorage.getItem("userName");
 
 const questionContainer = document.getElementById("questions");
@@ -78,25 +78,26 @@ const userNameInput = document.getElementById("userName");
 const submitNameBtn = document.getElementById("submitName");
 
 const questionsIndo = [
-  "Saya akan merasa tidak nyaman jika tidak mengakses langsung informasi dari telepon pintar saya.",
-  "Saya akan merasa terganggu jika saya tidak dapat melihat informasi dari telepon pintar saat saya sedang ingin melakukannya.",
-  "Tidak dapat melihat berita (misalnya kejadian saat ini, cuaca, dsb) dari telepon pintar saya akan membuat saya resah.",
-  "Saya akan merasa terganggu jika saya tidak dapat menggunakan telepon pintar saya dan/atau telepon pintar saya itu tidak ada saat saya membutuhkannya.",
-  "Saya akan sangat takut bila telepon pintar saya kehabisan baterai.",
+  "Saya akan merasa tidak nyaman jika tidak mengakses langsung informasi dari ponsel saya.",
+  "Saya akan merasa terganggu jika saya tidak dapat melihat informasi dari ponsel saat saya sedang ingin melakukannya.",
+  "Tidak dapat melihat berita (misalnya kejadian saat ini, cuaca, dsb) dari ponsel saya akan membuat saya resah.",
+  "Saya akan merasa terganggu jika saya tidak dapat menggunakan ponsel saya dan/atau ponsel saya itu tidak ada saat saya membutuhkannya.",
+  "Saya akan sangat takut bila ponsel saya kehabisan baterai.",
   "Saya akan panik jika pulsa atau paket data limit bulanan saya habis.",
   "Jika tidak ada sinyal data atau tidak dapat terhubung dengan Wi-Fi, maka saya akan terus memeriksa apakah sinyal atau jaringan Wi-Fi sudah ada.",
-  "Jika saya tidak dapat menggunakan telepon pintar saya, maka saya akan merasa seperti terdampar di tempat asing.",
-  "Jika saya tidak dapat cek telepon pintar sementara waktu, maka saya akan merasa sangat ingin mengeceknya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa cemas karena tidak dapat langsung berkomunikasi dengan keluarga dan/atau teman-teman saya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa khawatir karena keluarga saya dan/atau teman-teman tidak dapat menghubungi saya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa resah karena saya tidak dapat menerima pesan dan telepon.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa cemas karena tidak dapat berhubungan dengan keluarga dan/atau teman-teman saya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa resah karena saya tidak akan tahu apakah ada seseorang yang telah mencoba menelpon saya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya merasa cemas hubungan saya dengan keluarga dan/atau teman-teman saya akan rusak.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa resah karena terputus dari identitas online saya.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya merasa tidak nyaman karena tidak dapat update status sosial dan jaringan online.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya merasa janggal karena tidak dapat cek notifikasi update dari koneksi dan jaringan online.",
-  "Jika saya tidak membawa telepon pintar saya, maka saya akan merasa aneh karena tidak tahu apa yang harus dilakukan.",
+  "Jika saya tidak dapat menggunakan ponsel saya, maka saya akan merasa seperti terdampar di tempat asing.",
+  "Jika saya tidak dapat cek ponsel sementara waktu, maka saya akan merasa sangat ingin mengeceknya.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa cemas karena tidak dapat langsung berkomunikasi dengan keluarga dan/atau teman-teman saya.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa khawatir karena keluarga saya dan/atau teman-teman tidak dapat menghubungi saya.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa resah karena saya tidak dapat menerima pesan dan telepon.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa cemas karena tidak dapat berhubungan dengan keluarga dan/atau teman-teman saya.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa resah karena saya tidak akan tahu apakah ada seseorang yang telah mencoba menelpon saya.",
+  "Jika saya tidak membawa ponsel saya, maka saya merasa cemas hubungan saya dengan keluarga dan/atau teman-teman saya akan rusak.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa gugup karena saya akan kehilangan status online/tidak terlihat online.",
+  "Jika saya tidak membawa ponsel saya, maka saya merasa tidak nyaman karena tidak dapat update status sosial dan jaringan online.",
+  "Jika saya tidak membawa ponsel saya, maka saya merasa janggal karena tidak dapat cek notifikasi update dari koneksi dan jaringan online.",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa cemas karena saya tidak bisa memeriksa email saya",
+  "Jika saya tidak membawa ponsel saya, maka saya akan merasa aneh karena tidak tahu apa yang harus dilakukan.",
 ];
 
 const questionsEnglish = [
@@ -118,6 +119,7 @@ const questionsEnglish = [
   "If I do not bring my smartphone, I will feel uneasy because I am disconnected from my online identity.",
   "If I do not bring my smartphone, I feel uncomfortable because I cannot update my social status and online network.",
   "If I do not bring my smartphone, I will feel strange because I cannot check notifications from my connections and online network.",
+  "If I do not bring my smartphone, I will feel anxious because I can't check my emails.",
   "If I do not bring my smartphone, I will feel odd because I do not know what to do.",
 ];
 
@@ -288,11 +290,11 @@ function displayResult(totalScore) {
     description = "Tidak ada nomophobia";
     advice =
       "Anda memiliki hubungan yang sehat dengan ponsel Anda dan tidak ada masalah ketika terpisah darinya.";
-  } else if (totalScore <= 60) {
+  } else if (totalScore < 60) {
     description = "Nomophobia Ringan";
     advice =
       "Anda sedikit gelisah ketika Anda lupa telepon di rumah selama sehari atau terjebak di suatu tempat yang tidak ada WiFinya, tetapi kecemasannya tidak terlalu berlebihan. \nPerhatikan penggunaan smartphone Anda dan coba untuk menguranginya jika perlu.";
-  } else if (totalScore <= 100) {
+  } else if (totalScore < 100) {
     description = "Nomophobia Sedang";
     advice =
       "Anda mungkin bergantung cukup banyak pada smartphone Anda. Anda sering memeriksa update ponsel Anda, saat berjalan di jalan atau berbicara dengan teman, dan Anda sering merasa khawatir ketika ponsel Anda tidak terhubung. \nCobalah sesekali melepaskan diri.";
